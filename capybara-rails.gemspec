@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "capybara"
   spec.add_runtime_dependency "capybara-console"
   spec.add_runtime_dependency "exception_notification"
+  spec.add_runtime_dependency "database_cleaner"
 end

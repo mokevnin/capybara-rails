@@ -7,6 +7,17 @@ module Capybara
         end
 
         require 'capybara/rails'
+
+        if defined?(ActiveRecord::Base)
+          require 'capybara-rails/activerecord'
+          require 'database_cleaner'
+          DatabaseCleaner.strategy = :transaction
+        end
+
+        if defined?(ActionDispatch::Integration)
+          require 'capybara-rails/action_dispatch_integration'
+        end
+
         require 'exception_notification'
 
         exception_logger = Logger.new('log/capybara_exceptions.log')
