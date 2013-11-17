@@ -1,20 +1,6 @@
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
-  if defined?(ActiveRecord::Base)
-    setup do
-      ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-      ActiveRecord::Base.descendants.each do |model|
-        model.shared_connection = model.connection
-      end
-      DatabaseCleaner.start
-    end
-
-    teardown do
-      DatabaseCleaner.clean
-    end
-  end
-
   def saop
     save_and_open_page
   end

@@ -8,12 +8,10 @@ module Capybara
 
         require 'capybara/rails'
 
-        if defined?(ActiveRecord::Base)
-          require 'capybara-rails/activerecord'
-          require 'database_cleaner'
-          DatabaseCleaner.strategy = :transaction
-        end
+        require 'database_cleaner'
+        DatabaseCleaner.strategy = :truncation
 
+        require 'capybara-rails/active_support_test_case'
         if defined?(ActionDispatch::Integration)
           require 'capybara-rails/action_dispatch_integration'
         end
