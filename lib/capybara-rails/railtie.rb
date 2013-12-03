@@ -22,7 +22,7 @@ module Capybara
         ExceptionNotifier.add_notifier :capybara_exceptions,
           ->(exception, options) {
             exception_logger.debug(exception.message)
-            cleaned_backtrace = ::Rails.backtrace_cleaner.filter exception.backtrace
+            cleaned_backtrace = ::Rails.backtrace_cleaner.clean(exception.backtrace)
             exception_logger.debug(cleaned_backtrace)
           }
 
