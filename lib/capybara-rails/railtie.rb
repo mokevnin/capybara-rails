@@ -26,7 +26,7 @@ module Capybara
             exception_logger.debug(cleaned_backtrace)
           }
 
-        app.middleware.use 'ExceptionNotification::Rack'
+        app.middleware.use ExceptionNotification::Rack
       end
     end
   end
